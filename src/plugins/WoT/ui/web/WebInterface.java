@@ -364,7 +364,7 @@ public class WebInterface {
 				dataBucket = BucketTools.makeImmutableBucket(core.tempBucketFactory, puzzle.getData());
 				filterInput = dataBucket.getInputStream();
 				filterOutput = output.getOutputStream();
-				ContentFilter.filter(filterInput, filterOutput, puzzle.getMimeType(), uri, null, null, null);
+				ContentFilter.filter(filterInput, filterOutput, puzzle.getMimeType(), dataBucket.size(), uri, null, null, null);
 				filterInput.close();
 				filterOutput.close();
 				writeReply(ctx, 200, puzzle.getMimeType(), "OK", output);
